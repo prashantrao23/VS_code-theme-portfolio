@@ -1,6 +1,13 @@
-import "./ProjectCard.scss"
+import "./ProjectCard.scss";
 
-function ProjectCard({ title, description, url, image }) {
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+}
+
+function ProjectCard({ title, description, url, image }: ProjectCardProps) {
   return (
     <div className="project-card">
       <div className="project-card__image">
@@ -19,7 +26,7 @@ function ProjectCard({ title, description, url, image }) {
         </a>
       </div>
     </div>
-  )
+  );
 }
 
-export default ProjectCard
+export default ProjectCard;
