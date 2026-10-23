@@ -1,0 +1,70 @@
+.category-filter {
+  --indicator-x: 4px;
+  --indicator-width: 65px;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #ececec;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // Sliding active background
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 4px;
+    bottom: 4px;
+    left: 0;
+    width: var(--indicator-width);
+    border-radius: 4px;
+    background: #007acc;
+    transform: translateX(var(--indicator-x));
+    transition:
+      transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      width 300ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    pointer-events: none;
+  }
+
+  &__button {
+    position: relative;
+    flex: 0 0 auto;
+    height: 1.5rem;
+    padding: 0.25rem 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: #444444;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 180ms ease;
+
+    &.is-active {
+      color: #ffffff;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-filter::after,
+  .category-filter__button {
+    transition: none;
+  }
+}

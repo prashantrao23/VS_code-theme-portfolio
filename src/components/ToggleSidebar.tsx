@@ -112,27 +112,27 @@ function ToggleSidebar() {
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
-                <li className="text-[#444444] dark:text-[#2A2A2A]">
+                {/* <li className="text-[#444444] dark:text-[#2A2A2A]">
                   <img
                     src={skillIcn}
                     alt="Skills Icon"
                     className="inline-block"
                   />
                   skills.json
-                </li>
+                </li> */}
 
                 <li className="text-[#444444] dark:text-[#2A2A2A]">
                   <img src={pdfIcn} alt="PDF Icon" className="inline-block" />
                   resume.pdf
                 </li>
-                <li className="text-[#444444] dark:text-[#2A2A2A]">
+                {/* <li className="text-[#444444] dark:text-[#2A2A2A]">
                   <img
                     src={readmeIcn}
                     alt="README Icon"
                     className="inline-block"
                   />
                   README.md
-                </li>
+                </li> */}
               </ul>
             </AccordionContent>
           </AccordionItem>
