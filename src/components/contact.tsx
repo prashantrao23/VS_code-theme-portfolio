@@ -4,18 +4,64 @@ import { Terminal, Send, Info } from "lucide-react";
 export default function ContactEditor() {
   const [senderName, setSenderName] = useState("");
   const [senderEmail, setSenderEmail] = useState("");
-  const [subject, setSubject] = useState("");
+  const [subject, setSubject] = useState("Portfolio enquiry");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"ready" | "copied" | "invalid">("invalid");
+  const CONTACT_EMAIL = "prashantrao744@gmail.com";
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  // Derive readiness from the current values so status updates while typing.
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(senderEmail.trim());
+  const isFormReady =
+    senderName.trim().length > 0 &&
+    isEmailValid &&
+    subject.trim().length > 0 &&
+    message.trim().length >= 20;
 
-    const body = `Name: ${senderName}\nEmail: ${senderEmail}\n\n${message}`;
-    const mailto = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const liveStatus =
+    status === "copied" ? "copied" : isFormReady ? "ready" : "invalid";
 
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (
+      !senderName.trim() ||
+      !senderEmail.trim() ||
+      !subject.trim() ||
+      message.trim().length < 20
+    ) {
+      setStatus("invalid");
+      return;
+    }
+
+    const body = [
+      `Name: ${senderName.trim()}`,
+      `Email: ${senderEmail.trim()}`,
+      "",
+      message.trim(),
+    ].join("\n");
+
+    // This frontend-only form opens the visitor's configured email application.
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject.trim())}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
+    setStatus("ready");
   }
 
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setStatus("copied");
+    } catch {
+      window.location.href = `mailto:${CONTACT_EMAIL}`;
+    }
+  }
+
+  function resetForm() {
+    setSenderName("");
+    setSenderEmail("");
+    setSubject("Portfolio enquiry");
+    setMessage("");
+    setStatus("ready");
+  }
   return (
     <div className="workspace-content flex px-3 bg-[#f5f5f5] dark:bg-[#1B1B1C]">
       <div className="code-gutter flex-none py-3 flex flex-col gap-1.5 pr-3 border-r border-[#333333] dark:border-[#e5e2e1]">
@@ -41,22 +87,32 @@ export default function ContactEditor() {
             <span className="text-[#16825D] dark:text-[#e5e2e1]">
               {"{ NetworkHandshake, EncryptedPayload }"}
             </span>{" "}
-            <span className="text-[#0000FF] dark:text-[#F4B1EE]">from</span>
-            {" "}
-            <span className="text-[#A31515] dark:text-[#9FCAFF]">'@sys/protocols';</span>
+            <span className="text-[#0000FF] dark:text-[#F4B1EE]">from</span>{" "}
+            <span className="text-[#A31515] dark:text-[#9FCAFF]">
+              '@sys/protocols';
+            </span>
           </div>
 
           <div>
-            <span className="text-[#0000FF] dark:text-[#9FCAFF]">export interface</span>{" "}
-            <span className="text-[#16825D] dark:text-[#84CFFF]">MessagePayload</span> {"{"}
+            <span className="text-[#0000FF] dark:text-[#9FCAFF]">
+              export interface
+            </span>{" "}
+            <span className="text-[#16825D] dark:text-[#84CFFF]">
+              MessagePayload
+            </span>{" "}
+            {"{"}
             <div className="pl-3 text-[#001080] dark:text-[#e5e2e1]">
-              senderName: <span className="text-[#0000FF] dark:text-[#84CFFF]">string</span>;{" "}
+              senderName:{" "}
+              <span className="text-[#0000FF] dark:text-[#84CFFF]">string</span>
+              ;{" "}
               <span className="text-[#16825D] dark:text-[#8a919db2]">
                 // Human identifier or org title
               </span>
             </div>
             <div className="pl-3 text-[#001080] dark:text-[#e5e2e1]">
-              senderEmail: <span className="text-[#0000FF] dark:text-[#84CFFF]">string</span>;{" "}
+              senderEmail:{" "}
+              <span className="text-[#0000FF] dark:text-[#84CFFF]">string</span>
+              ;{" "}
               <span className="text-[#16825D] dark:text-[#8a919db2]">
                 // RFC-5322 compliant mailbox
               </span>
@@ -70,7 +126,9 @@ export default function ContactEditor() {
               ;
             </div>
             <div className="pl-3 text-[#001080] dark:text-[#e5e2e1]">
-              message: <span className="text-[#0000FF] dark:text-[#84CFFF]">string</span>;{" "}
+              message:{" "}
+              <span className="text-[#0000FF] dark:text-[#84CFFF]">string</span>
+              ;{" "}
               <span className="text-[#16825D] dark:text-[#8a919db2]">
                 // Detailed RFC, engagement scope or prompt
               </span>
@@ -84,18 +142,25 @@ export default function ContactEditor() {
         </div>
 
         {/* Contact form */}
-        <div className="max-w-125 mt-1 rounded-lg border border-[#e1e4e865] bg-[#F8F9FA] dark:bg-[#1B1B1C] px-4 py-6 shadow-sm">
+        <div className="max-w-150 mt-1 rounded-lg border border-[#e1e4e865] bg-[#F8F9FA] dark:bg-[#1B1B1C] px-4 py-6 shadow-sm">
           <div className="mb-4 pb-2 flex flex-wrap items-center justify-between gap-2 border-b border-[#e1e4e865]">
             <div className="flex items-center gap-1.5 text-[0.75rem] font-medium text-[#24292F] dark:text-[#9FCAFF]">
-              <Terminal size={12} className="text-emerald-700 dark:text-[#9FCAFF]" />
+              <Terminal
+                size={12}
+                className="text-emerald-700 dark:text-[#9FCAFF]"
+              />
               <span>PayloadDispatcher.renderForm()</span>
             </div>
-            <span className="rounded bg-[#ffffff] dark:bg-[#202020] border border-[#e1e4e84d] px-2 py-0.5 text-[9px] text-[#767676] dark:text-[#C0C7D3]">
-              <span className="text-[#16825D] dark:text-[#84CFFF] ">●</span> STATE: READY
+            <span className="rounded bg-[#ffffff] dark:bg-[#202020] border border-[#e1e4e84d] px-2 py-0.5 text-[0.75rem] text-[#767676] dark:text-[#C0C7D3]">
+              <span className={`${liveStatus==='invalid'? 'text-red-600 dark:text-red-800':'text-[#16825D] dark:text-[#84CFFF]'}  `}>●</span>{" "}
+              STATE: {liveStatus==='invalid'?'NOT READY':liveStatus==='copied'?'EMAIL COPIED':'READY'}
             </span>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-3 flex flex-col gap-3">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-3 flex flex-col gap-3"
+          >
             <div className="flex flex-col">
               <label
                 htmlFor="senderName"
@@ -107,7 +172,7 @@ export default function ContactEditor() {
                 id="senderName"
                 required
                 value={senderName}
-                onChange={(e) => setSenderName(e.target.value)}
+                onChange={(e) => { setSenderName(e.target.value); setStatus("invalid"); }}
                 placeholder="e.g. Alex Morgan (Engineering Director)"
                 className="inset-shadow-sm border border-[#E1E4E8] rounded-sm px-3 py-2 placeholder:text-[#76767680] dark:placeholder:text-[#929292] text-[#2a2a2a] dark:text-[#e5e2e1] bg-[#ffffff] dark:bg-[#353535]"
               />
@@ -125,7 +190,7 @@ export default function ContactEditor() {
                 type="email"
                 required
                 value={senderEmail}
-                onChange={(e) => setSenderEmail(e.target.value)}
+                onChange={(e) => { setSenderEmail(e.target.value); setStatus("invalid"); }}
                 placeholder="alex.morgan@enterprise.tech"
                 className="inset-shadow-sm border border-[#E1E4E8] rounded-sm px-3 py-2 placeholder:text-[#76767680] dark:placeholder:text-[#929292] text-[#2a2a2a] dark:text-[#e5e2e1] bg-[#ffffff] dark:bg-[#353535]"
               />
@@ -138,7 +203,7 @@ export default function ContactEditor() {
               >
                 subject :
               </label>
-              <input
+              {/* <input
                 id="subject"
                 type="text"
                 required
@@ -146,7 +211,23 @@ export default function ContactEditor() {
                 onChange={(e) => setSubject(e.target.value)}
                 placeholder="enter subject"
                 className="inset-shadow-sm border border-[#E1E4E8] rounded-sm px-3 py-2 placeholder:text-[#76767680] dark:placeholder:text-[#929292] text-[#2a2a2a] dark:text-[#e5e2e1] bg-[#ffffff] dark:bg-[#353535]"
-              />
+              /> */}
+              <select
+                id="subject"
+                name="subject"
+                required
+                value={subject}
+                onChange={(event) => { setSubject(event.target.value); setStatus("invalid"); }}
+                className="inset-shadow-sm border border-[#E1E4E8] rounded-sm px-3 py-2 placeholder:text-[#76767680] dark:placeholder:text-[#929292] text-[#2a2a2a] dark:text-[#e5e2e1] bg-[#ffffff] dark:bg-[#353535]"
+              >
+                <option value="Portfolio enquiry">Portfolio enquiry</option>
+                <option value="Job opportunity">Job opportunity</option>
+                <option value="Freelance project">Freelance project</option>
+                <option value="Technical discussion">
+                  Technical discussion
+                </option>
+                <option value="Other">Other</option>
+              </select>
             </div>
 
             <div className="flex flex-col">
@@ -164,7 +245,7 @@ export default function ContactEditor() {
                 maxLength={1000}
                 rows={4}
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => { setMessage(e.target.value); setStatus("invalid"); }}
                 placeholder="// Specify engagement context, timelines, tech stack, and mutual requirements..."
                 className="inset-shadow-sm min-h-22.5 w-full resize-y border border-[#E1E4E8] rounded-sm px-3 py-2 placeholder:text-[#76767680] dark:placeholder:text-[#929292] text-[#2a2a2a] dark:text-[#e5e2e1] bg-[#ffffff] dark:bg-[#353535]"
               />
@@ -180,20 +261,15 @@ export default function ContactEditor() {
 
               <button
                 type="button"
-                onClick={() => {
-                  setSenderName("");
-                  setSenderEmail("");
-                  setSubject("Staff Role");
-                  setMessage("");
-                }}
+                onClick={resetForm}
                 className="text-[0.75rem] text-[#767676] dark:text-[#C0C7D3] dark:bg-[#202020] px-3 py-2 rounded-sm"
               >
                 // reset
               </button>
 
-              <span className="ms-auto! flex items-center gap-1 text-[9px] text-[#767676] dark:text-[#C0C7D3]">
+              <span className="ms-auto! flex items-center gap-1 text-[0.75rem] text-[#767676] dark:text-[#C0C7D3]">
                 <Info size={10} className="text-blue-600 dark:text-[#84CFFF]" />
-                Status: READY_TO_TRANSMIT
+               Status: {liveStatus === "invalid" ? "NOT_READY_TO_TRANSMIT" : liveStatus === "copied" ? "EMAIL_COPIED" : "READY_TO_TRANSMIT"}
               </span>
             </div>
           </form>
