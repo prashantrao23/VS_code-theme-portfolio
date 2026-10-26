@@ -98,10 +98,10 @@ const coreStrengths = [
   "Accessibility",
 ];
 
-export default function About() {
-  const [activeSection, setActiveSection] = useState("about");
+export default function About({ initialSection = "about" }: { initialSection?: "about" | "skill" }) {
+  const [activeSection, setActiveSection] = useState(initialSection);
 
-  function toggleSection(section: string): void {
+  function toggleSection(section: "about" | "skill"): void {
     setActiveSection(section);
   }
 

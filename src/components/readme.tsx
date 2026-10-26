@@ -3,21 +3,14 @@ import {
   ArrowDownToLine,
   ArrowRight,
   AtSign,
-  BookOpen,
   Braces,
-  Code2,
-  ExternalLink,
-  FileCode2,
   FolderOpen,
-  Search,
-  Star,
   UserRound,
   Wrench,
-  Command,
-  Mail,
 } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/projects";
+import { useEditorTabs } from "./hooks/useEditorTabs";
 
 const quickLinks = [
   {
@@ -34,13 +27,13 @@ const quickLinks = [
     color: "text-[#0969DA] dark:text-[#9FCAFF]",
     target: "about",
   },
-  {
-    label: "Technical Skills",
-    filename: "skills.json",
-    icon: Braces,
-    color: "text-[#0969DA] dark:text-[#9FCAFF]",
-    target: "skills",
-  },
+  // {
+  //   label: "Technical Skills",
+  //   filename: "skills.json",
+  //   icon: Braces,
+  //   color: "text-[#0969DA] dark:text-[#9FCAFF]",
+  //   target: "skills",
+  // },
   {
     label: "Contact Handshake",
     filename: "contact.ts",
@@ -85,20 +78,10 @@ export default function Readme() {
     });
   }, [activeCategory, search]);
 
-  const visibleProjects = showAll
-    ? filteredProjects
-    : filteredProjects.slice(0, 3);
+  const { openFile } = useEditorTabs();
 
-  const scrollTo = (target: string) => {
-    if (target === "resume") {
-      window.open("/resume.pdf", "_blank", "noopener,noreferrer");
-      return;
-    }
-
-    document.getElementById(target)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const openQuickLink = (target: string) => {
+    openFile(target);
   };
 
   return (
@@ -227,7 +210,7 @@ export default function Readme() {
                 <button
                   key={link.target}
                   type="button"
-                  onClick={() => scrollTo(link.target)}
+                  onClick={() => openQuickLink(link.target)}
                   className={`inline-flex items-center gap-1.5 rounded-sm border px-2 py-1 transition-colors text-[0.75rem] ${
                     link.target === "resume"
                       ? "border-[#FECACA] bg-[#FEF2F2] dark:bg-[#93000A33] dark:border-[#93000A33]"
@@ -286,7 +269,8 @@ export default function Readme() {
           <div className="mt-6!">
             <button
               type="button"
-              className="inline-flex items-center gap-2 rounded bg-[#007acc] px-3 py-2 text-[10px] font-medium text-white transition-colors hover:bg-[#1688d1]"
+              onClick={() => openFile("projects")}
+              className="inline-flex items-center gap-2 rounded bg-[#007acc] px-3 py-2 text-[0.75rem] font-medium text-white transition-colors hover:bg-[#1688d1]"
             >
               Explore All Projects
               <ArrowRight size={13} />

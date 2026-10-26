@@ -1,22 +1,24 @@
 import "./App.scss";
 import "./tailwind.css";
 import Header from "./components/Header";
-import ToggleSidebar from "./components/ToggleSidebar";
-import ContentSection from "./components/ContentSection";
+import ExplorerSidebar from "./components/ExplorerSidebar";
+import EditorSection from "./components/EditorSection";
 import { ArrowRight, Check, Code2, Terminal } from "lucide-react";
 import { useTheme } from "./components/themeContext";
+import { useEditorTabs } from "./components/hooks/useEditorTabs";
 
 function App() {
   const { theme, toggleSidebar } = useTheme();
-  
+  const { openFile } = useEditorTabs();
+
   return (
     <div className={`flex flex-col h-full relative ${theme === "dark" ? "dark" : ""}`}>
       <Header />
       <main className="portfolio__main flex flex-row overflow-hidden">
         <nav className={`portfolio__nav md:static! h-full w-fit hidden md:flex bg-[#F3F3F3] dark:bg-[#0E0E0E] border-r border-[#D4D4D4] dark:border-[#404751] ${toggleSidebar? 'absolute top-0 left-0 z-1 flex!':''}`}>
-          <ToggleSidebar />
+          <ExplorerSidebar />
         </nav>
-        <ContentSection />
+        <EditorSection />
       </main>
       {/* Terminal-style contact bar */}
       <footer className="workspace-terminal flex flex-col md:flex-row items-center gap-x-3 gap-y-2 justify-between px-3 py-2 bg-[#F3F3F3] dark:bg-[#2a2a2a] border-t border-[#e0e0e0] dark:border-[#2a2a2a]">
@@ -39,12 +41,13 @@ function App() {
           Want to build accessible, scalable web experiences?
         </div> */}
 
-        <a
-          href="mailto:prashantrao744@gmail.com"
+        <button
+          type="button"
+          onClick={() => openFile("contact")}
           className="flex items-center justify-center max-w-80 w-full md:w-fit gap-1 rounded-sm px-2 py-1 bg-[#007ACC] text-[#ffffff] text-[0.75rem] font-medium whitespace-nowrap"
         >
           Open contact.ts <ArrowRight size={13} />
-        </a>
+        </button>
       </footer>
 
       <div className="workspace-statusbar">

@@ -6,7 +6,7 @@
     }
   }
   &__content{
-    width: 240px;
+    // width: 240px;
     .content-title{
         padding: 0.5rem 0.75rem;
         font-weight: 600;
@@ -20,7 +20,7 @@
       font-size: 0.75rem;
       font-weight: 700;
       // padding: 0rem 0.5rem;
-      height: 1.5rem;
+      min-height: 1.5rem;
       cursor: pointer;
     }
     .accordion-content__list{
@@ -36,9 +36,6 @@
         align-items: center;
         gap: 0.5rem;
         cursor: pointer;
-        &:hover{
-          // background-color: #E4E6F1;
-        }
         &.selected{
           background-color: #E4E6F1;
           border-left: 2px solid #007ACC;
@@ -61,9 +58,6 @@
         align-items: center;
         gap: 0.5rem;
         cursor: pointer;
-        &:hover{
-          // background-color: #E4E6F1;
-        }
         &.selected{
           background-color: #E4E6F1;
           border-left: 2px solid #007ACC;

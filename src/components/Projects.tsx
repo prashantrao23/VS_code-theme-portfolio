@@ -1,7 +1,5 @@
-import React from "react";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/projects";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useEffect, useRef, useState } from "react";
 import "./Projects.scss";
 
