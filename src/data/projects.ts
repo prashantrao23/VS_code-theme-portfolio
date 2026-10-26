@@ -9,6 +9,7 @@ const projects = [
     technologies: ["React 18", "TypeScript", "Node.js"],
     image: "/images/ai-workspace.png",
     demoUrl: "#",
+    featured: true,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const projects = [
     technologies: ["Vite", "MUI v5", "WebGL"],
     image: "/images/image-gallery.png",
     demoUrl: "#",
+    featured: true,
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const projects = [
     technologies: ["Tailwind", "Vanilla JS", "Tokens"],
     image: "/images/dev-portfolio.png",
     demoUrl: "#",
+    featured: false,
   }
 ]
 

@@ -1,14 +1,3 @@
-.about-workspace {
-}
-
-.workspace-content {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  align-items: stretch;
-  flex: 1;
-  min-height: 0;
-}
-
 .workspace-pane {
   min-width: 0;
   padding: 14px 12px 28px;
@@ -40,7 +29,6 @@
 }
 
 .code-comment {
-  //   color: #666666;
   font-size: 0.75rem;
 }
 
@@ -159,12 +147,6 @@
 //   line-height: 1.7;
 // }
 
-.strength-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 5px;
-  padding: 5px 0;
-}
 
 .strength-item {
   svg {
@@ -261,16 +243,6 @@
   }
 }
 
-.skills-json-footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 9px 3px;
-  color: #888;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 9px;
-}
 
 // Terminal
 
@@ -292,89 +264,5 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-  }
-}
-
-// Responsive
-
-@media (max-width: 900px) {
-  .workspace-content {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .workspace-pane--profile {
-    border-right: 0;
-    border-bottom: 1px solid #303030;
-  }
-
-  .workspace-pane--skills {
-    padding-top: 20px;
-  }
-
-  .workspace-titlebar {
-    flex-wrap: wrap;
-
-    &__file {
-      min-height: 34px;
-    }
-
-    &__tabs {
-      overflow-x: auto;
-      max-width: 100%;
-    }
-  }
-}
-
-@media (max-width: 560px) {
-  .workspace-pane {
-    padding: 12px 8px;
-  }
-
-  .workspace-pane--profile {
-    grid-template-columns: 16px minmax(0, 1fr);
-    gap: 5px;
-  }
-
-  .code-gutter {
-    font-size: 8px;
-  }
-
-  .profile-code {
-    font-size: 9px;
-  }
-
-  .profile-card {
-    align-items: flex-start;
-    gap: 9px;
-    padding: 9px;
-
-    &__avatar {
-      width: 48px;
-      height: 48px;
-    }
-
-    &__name strong {
-      font-size: 12px;
-    }
-  }
-
-  .strength-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .workspace-terminal {
-    flex-wrap: wrap;
-
-    &__prompt {
-      width: 100%;
-    }
-
-    &__message {
-      margin-left: 0;
-    }
-  }
-
-  .workspace-statusbar {
-    justify-content: flex-start;
   }
 }

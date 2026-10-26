@@ -11,6 +11,7 @@ interface ProjectCardProps {
   technologies: string[];
   demoUrl: string;
   image: string;
+  featured?: boolean;
 }
 
 function ProjectCard({

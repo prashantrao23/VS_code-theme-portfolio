@@ -47,7 +47,7 @@ export function CategoryFilter() {
   return (
     <div
       ref={containerRef}
-      className="category-filter"
+      className="category-filter border border-[#d4d4d4] dark:border-[#8A919D] bg-[#ececec] dark:bg-[#0E0E0E]"
       role="group"
       aria-label="Filter projects"
     >
@@ -62,7 +62,7 @@ export function CategoryFilter() {
             }
           }}
           type="button"
-          className={`category-filter__button ${
+          className={`category-filter__button text-[#444444] dark:text-[#C0C7D3] ${
             active === label ? "is-active" : ""
           }`}
           aria-pressed={active === label}
