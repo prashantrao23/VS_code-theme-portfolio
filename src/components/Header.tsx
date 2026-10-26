@@ -35,9 +35,9 @@ function Header() {
       </div>
 
       <form onSubmit={submitSearch} className="searchbar relative order-3 col-span-3 flex justify-center md:order-2 md:col-span-1">
-        <div className="relative w-full max-w-md">
-          <Search size={14} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#777777] dark:text-[#8A919D]" />
-          <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Escape") setQuery(""); }} placeholder="Search files... (press Enter)" aria-label="Search portfolio files" className="searchbar__input w-full min-w-8.4375rem rounded-sm bg-[#ffffff] px-4 pl-8 text-[#333333] shadow-md dark:bg-[#2A2A2A] dark:text-[#C0C7D3]" />
+        <div className="relative flex items-center w-full max-w-md min-w-8.4375rem rounded-sm bg-[#ffffff] shadow-md dark:bg-[#2A2A2A] px-3 py-1">
+          <Search size={14} className="pointer-events-none text-[#777777] dark:text-[#8A919D]" />
+          <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Escape") setQuery(""); }} placeholder="Search files... (press Enter)" aria-label="Search portfolio files" className="searchbar__input flex-1 outline-none text-[#333333]  dark:text-[#C0C7D3]" />
           {query.trim() && <div className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-sm border border-[#D4D4D4] bg-white shadow-lg dark:border-[#404751] dark:bg-[#1B1B1C]">
             {matches.length ? matches.map((file) => <button key={file.id} type="button" onClick={() => { openFile(file); setQuery(""); }} className="flex w-full items-center justify-between gap-3 px-3 py-2 text-left text-xs text-[#333333] hover:bg-[#E4E6F1] dark:text-[#E5E2E1] dark:hover:bg-[#2e2e2e]"><span>{file.name}</span><span className="text-[#777777] dark:text-[#8A919D]">{file.path}</span></button>) : <p className="px-3 py-2 text-xs text-[#777777] dark:text-[#8A919D]">No matching files</p>}
           </div>}
