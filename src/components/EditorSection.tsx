@@ -37,8 +37,8 @@ function ActiveEditor({ fileId }: { fileId: string }) {
       return (
         <div className="h-full min-h-0 bg-white dark:bg-[#131313]">
           <iframe
-            title="Prashant Rao resume"
-            src="./Prashant_Frontend_Developer_React.pdf"
+            title="Developer Resume"
+            src="./resume.pdf"
             className="h-full min-h-[65vh] w-full border-0"
           />
         </div>
@@ -83,7 +83,7 @@ function ContentSection() {
       <div className="breadcrump flex shrink-0 items-center gap-1.5 border-b border-[#E5E5E5] bg-[#ffffff] px-3 py-1 text-[0.75rem] text-[#616161] dark:border-[#404751] dark:bg-[#131313] dark:text-[#C0C7D3]">
         {activeFile ? (
           <>
-            <span>Prashant-Portfolio</span>
+            <span>Developer-Portfolio</span>
             <ChevronRight size={12} />
             {activeFile.path
               .split("/")

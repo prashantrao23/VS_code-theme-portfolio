@@ -7,7 +7,7 @@ export default function ContactEditor() {
   const [subject, setSubject] = useState("Portfolio enquiry");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"ready" | "copied" | "invalid">("invalid");
-  const CONTACT_EMAIL = "prashantrao744@gmail.com";
+  const CONTACT_EMAIL = "developer@example.com";
 
   // Derive readiness from the current values so status updates while typing.
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(senderEmail.trim());
@@ -142,7 +142,7 @@ export default function ContactEditor() {
         </div>
 
         {/* Contact form */}
-        <div className="max-w-150 mt-1 rounded-lg border border-[#e1e4e865] bg-[#F8F9FA] dark:bg-[#1B1B1C] px-4 py-6 shadow-sm">
+        <div className="max-w-150 mt-1! rounded-lg border border-[#e1e4e865] bg-[#F8F9FA] dark:bg-[#1B1B1C] px-4 py-6 shadow-sm">
           <div className="mb-4 pb-2 flex flex-wrap items-center justify-between gap-2 border-b border-[#e1e4e865]">
             <div className="flex items-center gap-1.5 text-[0.75rem] font-medium text-[#24292F] dark:text-[#9FCAFF]">
               <Terminal
@@ -159,7 +159,7 @@ export default function ContactEditor() {
 
           <form
             onSubmit={handleSubmit}
-            className="space-y-3 flex flex-col gap-3"
+            className="mt-3! flex flex-col gap-3"
           >
             <div className="flex flex-col">
               <label
@@ -274,6 +274,18 @@ export default function ContactEditor() {
             </div>
           </form>
         </div>
+
+        <div className="mt-3!">
+            <span className="text-[#0000FF] dark:text-[#9FCAFF]">
+              export default
+            </span>{" "}
+            <span className="text-[#16825D] dark:text-[#84CFFF]">
+              PayloadDispatcher
+            </span>
+          </div>
+      </div>
+      <div className="flex-1">
+        
       </div>
     </div>
   );

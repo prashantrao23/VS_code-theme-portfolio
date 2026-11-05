@@ -128,7 +128,7 @@ function ToggleSidebar() {
           >
             <AccordionItem value="portfolio" className="border-0!">
               <AccordionTrigger className="accordion-trigger text-[#6F6F6F] dark:text-[#C0C7D3]">
-                PRASHANT - PORTFOLIO
+                DEVELOPER - PORTFOLIO
               </AccordionTrigger>
               <AccordionContent className="accordion-content">
                 <ul className="accordion-content__list pt-0.5">

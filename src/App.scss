@@ -1,12 +1,54 @@
-*{
-  font-family: 'Inter', sans-serif;
+* {
+  font-family: "Inter", sans-serif;
   transition: all 300ms ease-in-out;
 }
 
 .portfolio {
-  &__main{
+  &__main {
     display: flex;
     flex: 1;
     // height: calc(100dvh - 36px);
+  }
+}
+.main-container-app {
+  // position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background:
+    radial-gradient(
+      ellipse at 15% 15%,
+      rgba(0, 122, 204, 0.14),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 85% 85%,
+      rgba(124, 58, 237, 0.12),
+      transparent 42%
+    ),
+    #d8dee8;
+  transition: all 300ms ease-in-out;
+
+  }
+  &.dark {
+    &::before {
+      background:
+        radial-gradient(
+          ellipse at 15% 15%,
+          rgba(0, 122, 204, 0.13),
+          transparent 40%
+        ),
+        radial-gradient(
+          ellipse at 85% 85%,
+          rgba(124, 58, 237, 0.12),
+          transparent 42%
+        ),
+        #111318;
+    }
   }
 }

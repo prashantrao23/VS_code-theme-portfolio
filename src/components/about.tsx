@@ -170,7 +170,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                               ＊ Developer:
                             </span>
                             <strong className="text-[#1e1e1e] dark:text-[#e5e2e1] text-[1.125rem] font-semibold leading-none">
-                              Prashant Rao
+                              Alex Morgan
                             </strong>
                           </div>
 
@@ -215,7 +215,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                         export const
                       </span>{" "}
                       <span className="syntax-blue text-[#001080] dark:text-[#84cfff]">
-                        prashant
+                        profile
                       </span>
                       :{" "}
                       <span className="syntax-yellow text-[#267f99] dark:text-[#9FCAFF]">
@@ -257,7 +257,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                         </span>
                         :{" "}
                         <span className="syntax-green text-[#A31515] dark:text-[#84CFFF]">
-                          'Accenture'
+                          'Tech Company'
                         </span>
                         ,
                       </p>
@@ -371,7 +371,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                           </span>
                           :{" "}
                           <span className="syntax-green text-[#A31515] dark:text-[#84CFFF]">
-                            'Accenture Celebrates Excellence'
+                            'Engineering Excellence Award'
                           </span>
                         </p>
                       </div>
@@ -402,7 +402,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                         </a>
 
                         <a
-                          href="https://www.linkedin.com/in/prashant-rao-8088771b3"
+                          href="https://linkedin.com"
                           target="_blank"
                           rel="noreferrer"
                           className="flex items-center gap-1 bg-[#ffffff] dark:bg-[#20202080] border border-[#E2E8F0] dark:border-[#202020] px-2 py-2 rounded-sm text-[#007acc] dark:text-[#84CFFF] text-[0.75rem]"
@@ -415,7 +415,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                         </a>
 
                         <a
-                          href="mailto:prashantrao744@gmail.com"
+                          href="mailto:developer@example.com"
                           className="flex items-center gap-1 bg-[#ffffff] dark:bg-[#20202080] border border-[#E2E8F0] dark:border-[#202020] px-2 py-2 rounded-sm text-[#1e1e1e] dark:text-[#E5E2E1] text-[0.75rem]"
                         >
                           <Mail
@@ -453,7 +453,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                         export default
                       </span>{" "}
                       <span className="syntax-blue text-[#001080] dark:text-[#84cfff]">
-                        prashant
+                        profile
                       </span>
                       ;
                     </p>
@@ -552,7 +552,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                             ＊ Developer:
                           </span>
                           <strong className="text-[#1e1e1e] dark:text-[#e5e2e1] text-[1.125rem] font-semibold leading-none">
-                            Prashant Rao
+                            Alex Morgan
                           </strong>
                         </div>
 
@@ -597,7 +597,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                       export const
                     </span>{" "}
                     <span className="syntax-blue text-[#001080] dark:text-[#84cfff]">
-                      prashant
+                      profile
                     </span>
                     :{" "}
                     <span className="syntax-yellow text-[#267f99] dark:text-[#9FCAFF]">
@@ -639,7 +639,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                       </span>
                       :{" "}
                       <span className="syntax-green text-[#A31515] dark:text-[#84CFFF]">
-                        'Accenture'
+                        'Tech Company'
                       </span>
                       ,
                     </p>
@@ -752,7 +752,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                         </span>
                         :{" "}
                         <span className="syntax-green text-[#A31515] dark:text-[#84CFFF]">
-                          'Accenture Celebrates Excellence'
+                          'Engineering Excellence Award'
                         </span>
                       </p>
                     </div>
@@ -783,7 +783,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                       </a>
 
                       <a
-                        href="https://www.linkedin.com/in/prashant-rao-8088771b3"
+                        href="https://linkedin.com"
                         target="_blank"
                         rel="noreferrer"
                         className="flex items-center gap-1 bg-[#ffffff] dark:bg-[#20202080] border border-[#E2E8F0] dark:border-[#202020] px-2 py-2 rounded-sm text-[#007acc] dark:text-[#84CFFF] text-[0.75rem]"
@@ -796,7 +796,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                       </a>
 
                       <a
-                        href="mailto:prashantrao744@gmail.com"
+                        href="mailto:developer@example.com"
                         className="flex items-center gap-1 bg-[#ffffff] dark:bg-[#20202080] border border-[#E2E8F0] dark:border-[#202020] px-2 py-2 rounded-sm text-[#1e1e1e] dark:text-[#E5E2E1] text-[0.75rem]"
                       >
                         <Mail
@@ -834,7 +834,7 @@ export default function About({ initialSection = "about" }: { initialSection?: "
                       export default
                     </span>{" "}
                     <span className="syntax-blue text-[#001080] dark:text-[#84cfff]">
-                      prashant
+                      profile
                     </span>
                     ;
                   </p>

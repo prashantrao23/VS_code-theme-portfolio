@@ -31,7 +31,7 @@ function Header() {
       <div className="workspace order-1 col-span-2 flex items-center gap-4 md:col-span-1">
         <div className="workspace__icon hidden gap-1.5 md:flex"><span className="rounded-full bg-[#ED6A5E] dark:bg-[#93000A]"></span><span className="rounded-full bg-[#F5BF4F] dark:bg-[#019AD6]"></span><span className="rounded-full bg-[#62C554] dark:bg-[#007ACC]"></span></div>
         <button type="button" aria-label="Toggle explorer" className="flex h-6 w-6 items-center justify-center bg-transparent dark:text-[#C0C7D3] md:hidden" onClick={toggleExplorer}><Menu /></button>
-        <div className="workspace__name flex items-center gap-2 text-[#333333] dark:text-[#C0C7D3]"><img src={codeIcn} alt="" />DevFolio — Prashant Rao</div>
+        <div className="workspace__name flex items-center gap-2 text-[#333333] dark:text-[#C0C7D3]"><img src={codeIcn} alt="" />DevFolio — Developer Portfolio</div>
       </div>
 
       <form onSubmit={submitSearch} className="searchbar relative order-3 col-span-3 flex justify-center md:order-2 md:col-span-1">

@@ -12,7 +12,7 @@ function App() {
   const { openFile } = useEditorTabs();
 
   return (
-    <div className={`flex flex-col h-full relative ${theme === "dark" ? "dark" : ""}`}>
+    <div className={`main-container-app flex flex-col h-full max-w-360 w-full mx-auto! ${theme === "dark" ? "dark" : ""}`}>
       <Header />
       <main className="portfolio__main flex flex-row overflow-hidden">
         <nav className={`portfolio__nav md:static! h-full w-fit hidden md:flex bg-[#F3F3F3] dark:bg-[#0E0E0E] border-r border-[#D4D4D4] dark:border-[#404751] ${toggleSidebar? 'absolute top-0 left-0 z-1 flex!':''}`}>
@@ -28,7 +28,7 @@ function App() {
               size={13}
               className="stroke-[#007ACC] dark:stroke-[#84CFFF]"
             />
-            prashant@portfolio:
+            developer@portfolio:
           </span>
           <span className="terminal-command text-[#1e1e1e] dark:text-[#E5E2E1] bg-transparent dark:bg-[#202020] rounded-sm px-2 py-1 scrollbar-none overflow-x-auto">
             <span className="whitespace-nowrap">

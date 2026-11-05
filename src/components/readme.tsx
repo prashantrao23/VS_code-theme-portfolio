@@ -105,7 +105,7 @@ export default function Readme() {
             </span>
 
             <h1 className="text-[2rem] font-semibold leading-tight tracking-[-1.2px] text-[#1e1e1e] dark:text-[#E5E2E1]">
-              Hi, I'm Prashant Rao
+              Hi, I'm Alex Morgan
             </h1>
 
             <span className="inline-flex items-center gap-1.5 rounded-full border border-[#CEEAD6] dark:border-[#019ad633] bg-[#E6F4EA] dark:bg-[#019ad633] px-2 py-0.5 text-[0.75rem] text-[#137333] dark:text-[#84CFFF]">
